@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Patient_Business_Logic": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:58033;http://localhost:58035"
+    }
+  }
+}
