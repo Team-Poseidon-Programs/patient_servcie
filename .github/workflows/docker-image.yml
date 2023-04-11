@@ -1,4 +1,4 @@
-name: ci
+name: patientserviceci
 
 on:
   push:
@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ui:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/patientservice:latest
