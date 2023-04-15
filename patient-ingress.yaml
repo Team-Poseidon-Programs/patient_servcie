@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: patient-ingress
+  annotations:
+    # Disable SSL redirect
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    # Enable use of regular expressions in path matching
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    # Rewrite the path to remove the "/api/Doctor/" prefix
+    # nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  # Specify the ingress class name
+  ingressClassName: nginx
+  # Specify the rules for this ingress resource
+  rules:
+  - # Specify the host name for this rule
+    http:
+      paths:
+      - # Specify the path to match for this rule
+        path: /api/Patient/Get_all_Patient
+        pathType: Prefix
+        backend:
+          service:
+            # Specify the name of the backend service to forward requests to
+            name: patient-api-service
+            port:
+              # Specify the port number of the backend service to forward requests to
+              number: 80
+        path: /api/Patient/Get_by_ID/?p*
+        pathType: Prefix
+        backend:
+          service:
+            # Specify the name of the backend service to forward requests to
+            name: patient-api-service
+            port:
+              # Specify the port number of the backend service to forward requests to
+              number: 80
