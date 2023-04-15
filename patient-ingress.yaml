@@ -27,4 +27,13 @@ spec:
             port:
               # Specify the port number of the backend service to forward requests to
               number: 80
+        path: /api/Patient/Get_by_Id/?p*
+        pathType: Prefix
+        backend:
+          service:
+            # Specify the name of the backend service to forward requests to
+            name: patient-api-service
+            port:
+              # Specify the port number of the backend service to forward requests to
+              number: 80
      
