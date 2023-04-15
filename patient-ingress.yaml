@@ -18,8 +18,39 @@ spec:
     - # Specify the host name for this rule
       http:
         paths:
+
+          - # Specify the path to match for this rule
+            path: /api/Patient/Add_Patient
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+          - # Specify the path to match for this rule
+            path: /api/Patient/Update_Patient/?p*
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
           - # Specify the path to match for this rule
             path: /api/Patient/Get_all_Patient
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+          - # Specify the path to match for this rule
+            path: /api/Patient/Get_by_ID/?p*
             pathType: Prefix
             backend:
               service:
@@ -48,7 +79,16 @@ spec:
                 port:
                   # Specify the port number of the backend service to forward requests to
                   number: 80
-
+          - # Specify the path to match for this rule
+            path: /api/Prescription/AddPrescription
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
           - # Specify the path to match for this rule
             path: /api/Prescription/GetPrescriptionById/?p*
             pathType: Prefix
@@ -59,9 +99,88 @@ spec:
                 port:
                   # Specify the port number of the backend service to forward requests to
                   number: 80
-          
+          - # Specify the path to match for this rule
+            path: /api/VisitDetails/AddVisitDetails
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
           - # Specify the path to match for this rule
             path: /api/VisitDetails/GetVisitDetailsById/?p*
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+          - # Specify the path to match for this rule
+            path: /api/VisitDetails/GetVisitDetailsByAcceptanceId/?p*
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+          - # Specify the path to match for this rule
+            path: /api/Test/AddTest
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+          - # Specify the path to match for this rule
+            path: /api/Test/GetTestListbyid/?p*
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+          - # Specify the path to match for this rule
+            path: /api/Test/GetTestIdbyname/?p*
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+          - # Specify the path to match for this rule
+            path: /api/Test/UpdateTest/?p*
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+          - # Specify the path to match for this rule
+            path: /api/Test/DeleteTest/?p*
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+          - # Specify the path to match for this rule
+            path: /api/Test/DeleteTest/?p*
             pathType: Prefix
             backend:
               service:
