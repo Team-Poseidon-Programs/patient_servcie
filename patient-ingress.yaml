@@ -130,6 +130,16 @@ spec:
                   # Specify the port number of the backend service to forward requests to
                   number: 80
           - # Specify the path to match for this rule
+            path: /api/VisitDetails/GetParticularVisitDetailsById/?p*
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+          - # Specify the path to match for this rule
             path: /api/Test/AddTest
             pathType: Prefix
             backend:
