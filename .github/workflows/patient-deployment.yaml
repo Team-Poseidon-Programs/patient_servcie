@@ -6,12 +6,14 @@ name: patient-deployment
     workflow_dispatch: {}
 env:
     ACR_RESOURCE_GROUP: posK8_kube_group
-    AZURE_CONTAINER_REGISTRY: acrworkflow1681545865981
+    AZURE_CONTAINER_REGISTRY: acrworkflow1681546981987
     CLUSTER_NAME: posK8_kubes
     CLUSTER_RESOURCE_GROUP: posK8_kube_group
-    CONTAINER_NAME: image-workflow-1681545865981
+    CONTAINER_NAME: image-workflow-1681546981987
     DEPLOYMENT_MANIFEST_PATH: |
         ./patient-deployment.yaml
+        ./patient-ingress.yaml
+        ./patientservice-service.yaml
 jobs:
     buildImage:
         permissions:
@@ -61,4 +63,4 @@ jobs:
                 action: deploy
                 images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
                 manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
-                namespace: namespace-workflow-1681545865981
+                namespace: namespace-workflow-1681546981987
