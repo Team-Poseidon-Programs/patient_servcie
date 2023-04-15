@@ -38,7 +38,6 @@ spec:
                 port:
                   # Specify the port number of the backend service to forward requests to
                   number: 80
-                  
           - # Specify the path to match for this rule
             path: /api/Patient/patientLogin/?p*
             pathType: Prefix
@@ -60,5 +59,15 @@ spec:
                 port:
                   # Specify the port number of the backend service to forward requests to
                   number: 80
-
-
+          
+          - # Specify the path to match for this rule
+            path: /api/VisitDetails/GetVisitDetailsById/?p*
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+  
