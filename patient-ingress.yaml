@@ -14,27 +14,29 @@ spec:
   ingressClassName: nginx
   # Specify the rules for this ingress resource
   rules:
-  - # Specify the host name for this rule
-    http:
-      paths:
-      - # Specify the path to match for this rule
-        path: /api/Patient/Get_all_Patient
-        pathType: Prefix
-        backend:
-          service:
-            # Specify the name of the backend service to forward requests to
-            name: patient-api-service
-            port:
-              # Specify the port number of the backend service to forward requests to
-              number: 80
-       - # Specify the path to match for this rule
-        path: /api/Patient/PatientExist/?p*
-        pathType: Prefix
-        backend:
-          service:
-            # Specify the name of the backend service to forward requests to
-            name: doctor-api-service
-            port:
-              # Specify the port number of the backend service to forward requests to
-              number: 80
-     
+
+    - # Specify the host name for this rule
+      http:
+        paths:
+          - # Specify the path to match for this rule
+            path: /api/Patient/Get_all_Patient
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+          - # Specify the path to match for this rule
+            path: /api/Patient/PatientExist/?p*
+            pathType: Prefix
+            backend:
+              service:
+                # Specify the name of the backend service to forward requests to
+                name: patient-api-service
+                port:
+                  # Specify the port number of the backend service to forward requests to
+                  number: 80
+
+  
