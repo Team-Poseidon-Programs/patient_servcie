@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-api-service 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patient-api-service
+  template:
+    metadata:
+      labels:
+        app: patient-api-service
+    spec:
+      containers:
+      - name: patient-api-service
+        image: poseidon2022/patientservice
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "Welcome to Azure Kubernetes Service (AKS)"
